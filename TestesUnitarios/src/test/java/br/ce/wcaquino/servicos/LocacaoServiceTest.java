@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import br.ce.wcaquino.daos.LocacaoDAO;
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Before;
@@ -25,14 +26,14 @@ import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 
-import br.ce.wcaquino.builders.FilmeBuilder;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
-import buildermaster.BuilderMaster;
+
+import org.mockito.Mockito;
 
 public class LocacaoServiceTest {
 
@@ -47,6 +48,7 @@ public class LocacaoServiceTest {
 	@Before
 	public void setup(){
 		service = new LocacaoService();
+		LocacaoDAO locacao = Mockito.mock(LocacaoDAO.class);
 	}
 	
 	@Test
@@ -118,7 +120,7 @@ public class LocacaoServiceTest {
 		
 	}
 	
-	public static void main(String[] args) {
-		new BuilderMaster().gerarCodigoClasse(Locacao.class);
-	}
+//	public static void main(String[] args) {
+//		new BuilderMaster().gerarCodigoClasse(Locacao.class);
+//	}
 }
